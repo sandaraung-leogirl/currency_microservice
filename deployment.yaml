@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: burmese-menu
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: burmese-menu
+  template:
+    metadata:
+      labels:
+        app: burmese-menu
+    spec:
+      containers:
+      - name: monti-container
+        image: hashicorp/http-echo:1.0.0
+        args:
+        - "-text=soe soe monti thoke!"
+      - name: tea-container
+        image: hashicorp/http-echo:1.0.0
+        args:
+        - "-text=Mandalay 3 Color Tea!"
+        - "-listen=:8888"

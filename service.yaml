@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: saturday-party
+  name: saturday-party
+spec:
+  ports:
+  - port: 1234
+    protocol: TCP
+    targetPort: 5678
+    name: monti-app
+  - port: 1235
+    protocol: TCP
+    targetPort: 8888
+    name: tea-app
+  selector:
+    app: burmese-menu
+  type: ClusterIP
